@@ -7,7 +7,7 @@ plugins {
 
 group = 'org.example'
 //version = '0.0.1-SNAPSHOT'
-version = '0.0.4'
+version = '2.0'
 
 java {
     toolchain {
@@ -33,12 +33,12 @@ def platform = project.hasProperty('platform') ? project.property('platform') : 
 
 docker {
     if(platform == "frontend") {
-        name "seojaeeun/testfront:" + version
+        name "seojaeeun/frontend:" + version
         files "frontend/dist"
         buildArgs(['DIST_DIR': "/"])
         dockerfile file('Dockerfile.frontend')
     } else {
-        name "seojaeeun/testback:" + version
+        name "seojaeeun/backend:" + version
         files tasks.bootJar.outputs.files
         buildArgs(['JAR_FILE': tasks.bootJar.outputs.files.singleFile.name])
         dockerfile file('Dockerfile')
