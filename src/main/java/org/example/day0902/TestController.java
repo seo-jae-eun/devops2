@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class TestController {
     @RequestMapping(method = RequestMethod.GET, value = "/test")
     public String test() {
-        return "backend 2.0.6";
+        return "backend 2.0.0";
     }
 }
