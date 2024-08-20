@@ -40,7 +40,7 @@ jobs:
       - name: Push Frontend Docker image
         uses: actions-hub/docker@master
         with:
-          args: push seojaeeun/frontend:2.0
+          args: push seojaeeun/frontend:3.0
 
       - name: restart frontend container
         uses: appleboy/ssh-action@v1.0.3
@@ -58,7 +58,7 @@ jobs:
             spec:
               containers:
                 - name: frontend
-                  image: seojaeeun/frontend:2.0
+                  image: seojaeeun/frontend:3.0
             EOF
   backend-deploy:
     if: github.ref == 'refs/heads/backend'
@@ -94,7 +94,7 @@ jobs:
       - name: Push Backend Docker image
         uses: actions-hub/docker@master
         with:
-          args: push seojaeeun/backend:2.0
+          args: push seojaeeun/backend:3.0
 
       - name: restart backend container
         uses: appleboy/ssh-action@v1.0.3
@@ -112,5 +112,5 @@ jobs:
             spec:
               containers:
                 - name: backend
-                  image: seojaeeun/backend:2.0
+                  image: seojaeeun/backend:3.0
             EOF
